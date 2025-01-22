@@ -1,7 +1,7 @@
 .timeline {
     --timeline-width: 0.27rem;
-    --timeline-spacing-between: 2rem;
-    --timeline-spacing-inner: 1rem;
+    --timeline-spacing-between: 1.6rem;
+    --timeline-spacing-inner: 0.8rem;
     --timeline-spacing-right: 2.5rem;
 
     position: relative;

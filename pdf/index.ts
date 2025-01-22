@@ -16,9 +16,9 @@ const PORT = 3001;
 const APPLICATION_URL = `http://localhost:${PORT}${basePath}`;
 
 function serveApplication() {
-  const basePathRegex = new RegExp(`^/?${basePath}(/|$)`);
+  const basePathRegex = new RegExp(`^/?${basePath}(/|$)`, 'g');
   const server = http.createServer((request, response) => {
-    request.url = request.url?.replace(basePathRegex, "/");
+    request.url = request.url?.replaceAll(basePathRegex, "/");
     return serveHandler(request, response, {
       public: BUILD_PATH,
     });
@@ -104,7 +104,7 @@ async function makePreview(
   const server = serveApplication();
 
   const browser = await puppeteer.launch({
-    headless: "new",
+    headless: true,
   });
 
   const locales = readdirSync(BUILD_PATH)
